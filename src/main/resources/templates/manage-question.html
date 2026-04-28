@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Tutor Dashboard - Jnana</title>
+    <title>Manage Questions - Jnana</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -47,45 +47,39 @@
 
         h1 {
             color: var(--text-color);
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             font-size: 2.5rem;
             font-weight: 600;
         }
 
-        .btn-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
         }
 
         .btn {
-            padding: 1.2rem;
+            padding: 12px 25px;
             border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
+            border-radius: 30px;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 500;
+            text-decoration: none;
             color: white;
             background: var(--secondary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
         }
 
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        .logout-btn {
-            background: var(--error-color);
-            margin-top: 1rem;
-            width: 200px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .toast {
@@ -118,20 +112,17 @@
 </head>
 <body>
     <div class="container">
-        <h1>Tutor Dashboard</h1>
-
+        <h1>Manage Questions</h1>
+        
         <div id="successToast" class="toast success" th:if="${session.pass}" th:text="${session.pass}"></div>
         <div id="errorToast" class="toast error" th:if="${session.fail}" th:text="${session.fail}"></div>
         <th:block th:text="${@generalService.removeMessage()}"></th:block>
 
-        <div class="btn-grid">
-            <a href="/tutor/courses" class="btn">Manage Courses</a>
-            <a href="/tutor/sections" class="btn">Manage Sections</a>
-            <a href="/tutor/questions" class="btn">Manage Questions</a>
-            <a href="/tutor/learners" class="btn">View Learners</a>
+        <div class="btn-group">
+            <a href="/tutor/add-question" class="btn btn-primary">Add Question</a>
+            <a href="/tutor/view-questions" class="btn">View All Questions</a>
+            <a href="/tutor/home" class="btn">Back</a>
         </div>
-
-        <a href="/logout" class="btn logout-btn">Logout</a>
     </div>
 
     <script>

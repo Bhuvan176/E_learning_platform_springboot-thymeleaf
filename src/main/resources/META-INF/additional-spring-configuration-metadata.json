@@ -23,5 +23,10 @@
     "name": "razor-pay.api.secret",
     "type": "java.lang.String",
     "description": "A description for 'razor-pay.api.secret'"
+  },
+  {
+    "name": "OTP_TIME",
+    "type": "java.lang.String",
+    "description": "A description for 'OTP_TIME'"
   }
 ]}
